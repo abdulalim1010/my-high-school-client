@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Nasrin Jahan",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/N7YDy9x/teacher2.jpg",
+    "address": "Uttara, Dhaka",
+    "degree": "MA in English",
+    "phone": "01712345601",
+    "gmail": "nasrin.jahan@gmail.com"
+  },
+  {
+    "name": "Md. Hasan Ali",
+    "title": "Head Teacher",
+    "image": "https://i.ibb.co/Sr61jP2/teacher1.jpg",
+    "address": "Mirpur, Dhaka",
+    "degree": "MSc in Mathematics",
+    "phone": "01712345602",
+    "gmail": "hasan.ali@gmail.com"
+  },
+  {
+    "name": "Abdul Karim",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/t2HG9DR/teacher3.jpg",
+    "address": "Savar, Dhaka",
+    "degree": "BSc in Physics",
+    "phone": "01712345603",
+    "gmail": "karim.abdul@gmail.com"
+  },
+  {
+    "name": "Farhana Akter",
+    "title": "Senior Teacher",
+    "image": "https://i.ibb.co/KqTLMjY/teacher4.jpg",
+    "address": "Mohakhali, Dhaka",
+    "degree": "MA in Bangla",
+    "phone": "01712345604",
+    "gmail": "farhana.ak@gmail.com"
+  },
+  {
+    "name": "Shahin Reza",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/yRnK3y1/teacher5.jpg",
+    "address": "Gulshan, Dhaka",
+    "degree": "MEd",
+    "phone": "01712345605",
+    "gmail": "shahin.reza@gmail.com"
+  },
+  {
+    "name": "Rokeya Sultana",
+    "title": "Senior Teacher",
+    "image": "https://i.ibb.co/n1xqPS6/teacher6.jpg",
+    "address": "Badda, Dhaka",
+    "degree": "MSc in Chemistry",
+    "phone": "01712345606",
+    "gmail": "rokeya.sultana@gmail.com"
+  },
+  {
+    "name": "Ahsan Habib",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/BwJbyKP/teacher7.jpg",
+    "address": "Tejgaon, Dhaka",
+    "degree": "MA in History",
+    "phone": "01712345607",
+    "gmail": "ahsan.habib@gmail.com"
+  },
+  {
+    "name": "Sadia Rahman",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/QYhVJxT/teacher8.jpg",
+    "address": "Dhanmondi, Dhaka",
+    "degree": "BSc in Biology",
+    "phone": "01712345608",
+    "gmail": "sadia.rahman@gmail.com"
+  },
+  {
+    "name": "Kamrul Islam",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/Xjp6c3L/teacher9.jpg",
+    "address": "Lalbagh, Dhaka",
+    "degree": "BSS in Civics",
+    "phone": "01712345609",
+    "gmail": "kamrul.islam@gmail.com"
+  },
+  {
+    "name": "Fatema Begum",
+    "title": "Senior Teacher",
+    "image": "https://i.ibb.co/fSsfL3L/teacher10.jpg",
+    "address": "Khilgaon, Dhaka",
+    "degree": "MA in Islamic Studies",
+    "phone": "01712345610",
+    "gmail": "fatema.begum@gmail.com"
+  },
+  {
+    "name": "Jahirul Islam",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/z5F6jqG/teacher11.jpg",
+    "address": "Demra, Dhaka",
+    "degree": "MSc in ICT",
+    "phone": "01712345611",
+    "gmail": "jahirul.islam@gmail.com"
+  },
+  {
+    "name": "Razia Sultana",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/TByLgZb/teacher12.jpg",
+    "address": "Rampura, Dhaka",
+    "degree": "BSc in General Science",
+    "phone": "01712345612",
+    "gmail": "razia.sultana@gmail.com"
+  },
+  {
+    "name": "Tariqul Islam",
+    "title": "Head Teacher",
+    "image": "https://i.ibb.co/HBdWq2y/teacher13.jpg",
+    "address": "Farmgate, Dhaka",
+    "degree": "MA in Education",
+    "phone": "01712345613",
+    "gmail": "tariqul.islam@gmail.com"
+  },
+  {
+    "name": "Munni Akter",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/6XYLNGG/teacher14.jpg",
+    "address": "Bashundhara, Dhaka",
+    "degree": "MSc in Biology",
+    "phone": "01712345614",
+    "gmail": "munni.akter@gmail.com"
+  },
+  {
+    "name": "Shamim Hossain",
+    "title": "Senior Teacher",
+    "image": "https://i.ibb.co/8Nc2RLp/teacher15.jpg",
+    "address": "Motijheel, Dhaka",
+    "degree": "BSc in Computer Science",
+    "phone": "01712345615",
+    "gmail": "shamim.hossain@gmail.com"
+  },
+  {
+    "name": "Nusrat Jahan",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/D9qf41m/teacher16.jpg",
+    "address": "Banani, Dhaka",
+    "degree": "MA in Fine Arts",
+    "phone": "01712345616",
+    "gmail": "nusrat.jahan@gmail.com"
+  },
+  {
+    "name": "Masud Rana",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/f8kSz5Y/teacher17.jpg",
+    "address": "Azimpur, Dhaka",
+    "degree": "MSc in Geography",
+    "phone": "01712345617",
+    "gmail": "masud.rana@gmail.com"
+  },
+  {
+    "name": "Shaheda Akter",
+    "title": "Senior Teacher",
+    "image": "https://i.ibb.co/pzLvWvD/teacher18.jpg",
+    "address": "Shyamoli, Dhaka",
+    "degree": "MSc in Chemistry",
+    "phone": "01712345618",
+    "gmail": "shaheda.akter@gmail.com"
+  },
+  {
+    "name": "Jamil Ahmed",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/jzMRNJ3/teacher19.jpg",
+    "address": "Banasree, Dhaka",
+    "degree": "BA in Arts",
+    "phone": "01712345619",
+    "gmail": "jamil.ahmed@gmail.com"
+  },
+  {
+    "name": "Khadija Sultana",
+    "title": "Assistant Teacher",
+    "image": "https://i.ibb.co/ZhGVgNt/teacher20.jpg",
+    "address": "Baridhara, Dhaka",
+    "degree": "MA in Islamic History",
+    "phone": "01712345620",
+    "gmail": "khadija.sultana@gmail.com"
+  }
+]

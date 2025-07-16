@@ -9,6 +9,7 @@ import Academic from "../pages/academic/Academic";
 
 
 import Gallery from "../pages/galary/Gallery";
+import Teachers from "../components/teachers/Teachers";
 
 
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       , {
         path: '/galary',
         Component:Gallery
+      }
+      , {
+        path: "/teachers",
+        Component:Teachers
       }
     
     

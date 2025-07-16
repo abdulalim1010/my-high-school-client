@@ -33,7 +33,7 @@ const Academic = () => {
 
       {/* Section: বিষয় বিভাগ */}
       <section>
-  <h2 className="text-2xl font-semibold text-blue-700 mb-3">বিষয়ভিত্তিক বিভাগ</h2>
+  <h2 className="text-2xl text-center font-semibold text-blue-700 mb-3">বিষয়ভিত্তিক বিভাগ</h2>
   <div className="grid md:grid-cols-3 gap-6 text-gray-800">
     <div className="bg-white shadow-md p-4 rounded-lg">
       <img src={sceicnimage } className="h-60 mb-2 mx-auto" alt="Science" />
@@ -55,7 +55,7 @@ const Academic = () => {
 
       {/* Section: ক্লাস রুটিন */}
       <section className="bg-white shadow-sm p-6 rounded-lg">
-  <h2 className="text-2xl font-semibold text-blue-700 mb-3">ক্লাস রুটিন</h2>
+  <h2 className="text-2xl text-center font-semibold text-blue-700 mb-3">ক্লাস রুটিন</h2>
   <div className="flex flex-col md:flex-row items-center gap-6">
     <div className="flex-1 space-y-2 text-gray-700">
       <ul className="list-disc pl-5">
@@ -76,7 +76,7 @@ const Academic = () => {
 
       {/* Section: পরীক্ষা ও মূল্যায়ন */}
       <section className="mt-8">
-  <h2 className="text-2xl font-semibold text-blue-700 mb-4">পরীক্ষার সময়সূচি</h2>
+  <h2 className="text-2xl text-center font-semibold text-blue-700 mb-4">পরীক্ষার সময়সূচি</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
     <div className="card bg-blue-100 shadow-md p-4 rounded-lg">
       <h3 className="font-semibold text-lg text-blue-800 mb-2">১ম টার্ম</h3>
