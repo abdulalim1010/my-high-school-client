@@ -10,6 +10,10 @@ import Academic from "../pages/academic/Academic";
 
 import Gallery from "../pages/galary/Gallery";
 import Teachers from "../components/teachers/Teachers";
+import TeacherDetails from "../components/teachers/TeacherDetails";
+import Login from "../authentification/login/Login";
+import Register from "../authentification/register/Register";
+import SocialLogin from "../authentification/SocialLogin";
 
 
 
@@ -38,6 +42,22 @@ export const router = createBrowserRouter([
       , {
         path: "/teachers",
         Component:Teachers
+      },
+      {
+        path: "/teachers/:id",
+        Component:TeacherDetails
+      },
+      {
+        path: 'login',
+        Component:Login
+      },
+      {
+        path: 'register',
+        Component:Register
+      },
+      {
+        path: "/socialLogin",
+        Component:SocialLogin
       }
     
     
