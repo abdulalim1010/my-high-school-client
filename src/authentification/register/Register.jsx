@@ -15,23 +15,46 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = async (data) => {
-    try {
-      const result = await creatUser(data.email, data.password);
-
-      await updateProfile(result.user, {
-        displayName: data.name,
-        photoURL: data.image,
-      });
-
-      alert("Registration successful!");
-      reset();
-      navigate("/login");
-    } catch (err) {
-      alert("Registration failed: " + err.message);
-    }
+  const saveUserToDB = async (user) => {
+  const newUser = {
+    name: user.name,
+    email: user.email,
+    image: user.image,
+    role: "user", // default role
   };
+
+  try {
+    await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUser),
+    });
+  } catch (err) {
+    console.error("Failed to save user to DB:", err);
+  }
+};
+
+
+ const onSubmit = async (data) => {
+  try {
+    const result = await creatUser(data.email, data.password);
+
+    await updateProfile(result.user, {
+      displayName: data.name,
+      photoURL: data.image,
+    });
+
+    // ✅ Save user to database
+    await saveUserToDB(data);
+
+    alert("Registration successful!");
+    reset();
+    navigate("/login");
+  } catch (err) {
+    alert("Registration failed: " + err.message);
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100 px-4">

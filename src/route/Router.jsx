@@ -14,6 +14,9 @@ import TeacherDetails from "../components/teachers/TeacherDetails";
 import Login from "../authentification/login/Login";
 import Register from "../authentification/register/Register";
 import SocialLogin from "../authentification/SocialLogin";
+import AdminRoute from "../pages/dashboard/AdminRoute";
+import DashboardLayout from "../pages/dashboard/DashboardLayout";
+import DashboardHome from "../pages/dashboard/DashboardHome";
 
 
 
@@ -23,42 +26,53 @@ export const router = createBrowserRouter([
     Component: MainLayouts,
     children: [{
       index: true,
-      Component:Home
+      Component: Home
+    },
+    {
+      path: '/about',
+      Component: About
+
+    }
+      ,
+    {
+      path: '/academics',
+      Component: Academic
+    }
+      , {
+      path: '/galary',
+      Component: Gallery
+    }
+      , {
+      path: "/teachers",
+      Component: Teachers
+    },
+    {
+      path: "/teachers/:id",
+      Component: TeacherDetails
+    },
+    {
+      path: 'login',
+      Component: Login
+    },
+    {
+      path: 'register',
+      Component: Register
+    },
+    {
+      path: "/socialLogin",
+      Component: SocialLogin
     },
       {
-        path: '/about',
-        Component:About
-
-      }
-      ,
-      {
-        path: '/academics',
-        Component:Academic
-      }
-      , {
-        path: '/galary',
-        Component:Gallery
-      }
-      , {
-        path: "/teachers",
-        Component:Teachers
-      },
-      {
-        path: "/teachers/:id",
-        Component:TeacherDetails
-      },
-      {
-        path: 'login',
-        Component:Login
-      },
-      {
-        path: 'register',
-        Component:Register
-      },
-      {
-        path: "/socialLogin",
-        Component:SocialLogin
-      }
+        path: "/dashboard",
+        element: <AdminRoute><DashboardLayout /></AdminRoute>,
+        children: [
+          {
+            index: true,
+            Component:DashboardHome
+          }
+        ]
+    }
+      
     
     
     ]

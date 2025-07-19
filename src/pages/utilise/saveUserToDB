@@ -1,0 +1,26 @@
+const saveUserToDB = async (user) => {
+  const newUser = {
+    uid: user?.uid, // ✅ Add this
+    name: user?.displayName || "Unknown",
+    email: user?.email,
+    image: user?.photoURL || "",
+    role: "user",
+  };
+
+  console.log("Saving user to DB:", newUser);
+
+  try {
+    const res = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUser),
+    });
+
+    const result = await res.json();
+    console.log("User saved response:", result);
+  } catch (err) {
+    console.error("❌ Failed to save user to DB:", err);
+  }
+};
+
+export default saveUserToDB;

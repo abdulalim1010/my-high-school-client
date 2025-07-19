@@ -1,12 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
 import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../hooks/UseAuth";
-
+import axios from "axios";
 
 const Login = () => {
-  const { login } = UseAuth()
+  const { login, user } = UseAuth();
   const navigate = useNavigate();
 
   const {
@@ -16,12 +15,33 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const saveUserToDB = async (user) => {
+    const userData = {
+      uid: user.uid,
+      name: user.displayName || "No Name",
+      email: user.email,
+      photo: user.photoURL || null,
+      role: "user",
+    };
+
+    try {
+     await axios.post("http://localhost:3000/users", userData);
+
+    } catch (error) {
+      // Optional: Only show error if it's not "already exists"
+      if (error.response?.status !== 200) {
+        console.error("Failed to save user:", error.message);
+      }
+    }
+  };
+
   const onSubmit = async (data) => {
     try {
-      await login(data.email, data.password);
+      const loggedInUser = await login(data.email, data.password);
       alert("Login successful!");
+      await saveUserToDB(loggedInUser.user); // Save to DB
       reset();
-      navigate("/"); // redirect to homepage or dashboard
+      navigate("/");
     } catch (err) {
       alert("Login failed: " + err.message);
     }

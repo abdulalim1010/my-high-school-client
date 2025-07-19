@@ -28,6 +28,7 @@ const NavBar = () => {
       <li><NavLink to="/galary" className={getLinkClass}>GALLERY</NavLink></li>
       <li><NavLink to="/teachers" className={getLinkClass}>TEACHERS</NavLink></li>
       <li><NavLink to="/time-table" className={getLinkClass}>TIMETABLE</NavLink></li>
+      <li><NavLink  to="/dashboard" className={getLinkClass}>Dashboard</NavLink></li>
     </>
   );
 
