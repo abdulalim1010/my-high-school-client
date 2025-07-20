@@ -19,6 +19,8 @@ import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import DashboardHome from "../pages/dashboard/DashboardHome";
 import AddTeacher from "../pages/dashboard/AddTeacher";
 import ManageUsers from "../pages/dashboard/ManageUsers";
+import ManageContent from "../pages/dashboard/ManageContent";
+import AddMemory from "../pages/galary/AddMemory";
 
 
 
@@ -34,8 +36,12 @@ export const router = createBrowserRouter([
       path: '/about',
       Component: About
 
-    }
-      ,
+      },
+    {
+        path: 'gallery-submissions',
+        Component:AddMemory
+      },
+      
     {
       path: '/academics',
       Component: Academic
@@ -79,7 +85,11 @@ export const router = createBrowserRouter([
           {
             path: "manage-users",
             Component:ManageUsers
-         }
+          },
+          {
+            path: "manage-content",
+            Component:ManageContent
+          }
         ]
     }
       

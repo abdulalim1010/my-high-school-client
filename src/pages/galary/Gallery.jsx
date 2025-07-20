@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+import GalleryDisplay from "./GalleryDisplay";
+import AddMemory from "./AddMemory";
+
 // Dummy image URLs – এখানে আপনি আপনার নিজের path/ছবি বসাবেন
 const images = {
   present: ["/gallery/present1.jpg", "/gallery/present2.jpg","/gallery/present3.jpg"],
@@ -52,9 +55,11 @@ const Gallery = () => {
         <p className="text-gray-600 mt-2 max-w-xl mx-auto">
           স্কুল জীবনের প্রতিটি মুহূর্ত, হাসি, উৎসব, ক্লাসরুমের স্মৃতি — সব এখানে ধরে রাখি।
         </p>
+        <AddMemory/>
       </motion.div>
 
       {/* Sections */}
+      <GalleryDisplay/>
       <GallerySection title="🎒 বর্তমান শিক্ষার্থীরা" imgArray={images.present} onImageClick={setSelectedImg} />
       <GallerySection title="🎓 প্রাক্তন শিক্ষার্থীরা" imgArray={images.ex} onImageClick={setSelectedImg} />
       <GallerySection title="🎉 উৎসব ও অনুষ্ঠান" imgArray={images.festival} onImageClick={setSelectedImg} />
