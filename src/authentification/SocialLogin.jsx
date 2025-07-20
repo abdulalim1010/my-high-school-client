@@ -8,25 +8,26 @@ const SocialLogin = () => {
   const { signInGoogle } = UseAuth();
   const navigate = useNavigate();
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInGoogle(); // Firebase returns { user: {...} }
-      const user = result.user; // ✅ Get the actual user info
+ const handleGoogleLogin = async () => {
+  try {
+    const result = await signInGoogle();
+    const user = result.user;
 
-      // ✅ Save user to DB with proper format
-      await saveUserToDB({
-        name: user.displayName || "No Name",
-        email: user.email,
-        image: user.photoURL || "",
-      });
+    await saveUserToDB({
+      uid: user.uid,
+      name: user.displayName || "No Name",
+      email: user.email,
+      image: user.photoURL || "",
+    });
 
-      alert("Login successful!");
-      navigate("/"); // redirect after login
-    } catch (error) {
-      alert("Google login failed: " + error.message);
-      console.error("Google login error:", error);
-    }
-  };
+    alert("Login successful!");
+    navigate("/");
+  } catch (error) {
+    alert("Google login failed: " + error.message);
+    console.error("Google login error:", error);
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100">

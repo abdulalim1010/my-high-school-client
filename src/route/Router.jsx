@@ -17,6 +17,7 @@ import SocialLogin from "../authentification/SocialLogin";
 import AdminRoute from "../pages/dashboard/AdminRoute";
 import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import DashboardHome from "../pages/dashboard/DashboardHome";
+import AddTeacher from "../pages/dashboard/AddTeacher";
 
 
 
@@ -69,7 +70,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             Component:DashboardHome
-          }
+          },
+          
+         {   path:"add-teacher",
+            Component: AddTeacher}
         ]
     }
       

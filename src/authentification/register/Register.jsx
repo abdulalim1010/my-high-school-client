@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import UseAuth from "../../hooks/UseAuth";
 import { updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import SocialLogin from "../SocialLogin"; // update path as needed
+import SocialLogin from "../SocialLogin"; 
 
 const Register = () => {
   const { creatUser } = UseAuth();
@@ -16,11 +16,12 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const saveUserToDB = async (user) => {
-  const newUser = {
+   const newUser = {
+    uid: user.uid, // ✅ this line is important
     name: user.name,
     email: user.email,
     image: user.image,
-    role: "user", // default role
+    role: "user",
   };
 
   try {
@@ -35,7 +36,7 @@ const Register = () => {
 };
 
 
- const onSubmit = async (data) => {
+const onSubmit = async (data) => {
   try {
     const result = await creatUser(data.email, data.password);
 
@@ -44,16 +45,23 @@ const Register = () => {
       photoURL: data.image,
     });
 
-    // ✅ Save user to database
-    await saveUserToDB(data);
+    // ✅ Send correct structure with uid
+    await saveUserToDB({
+      uid: result.user.uid,
+      name: data.name,
+      email: data.email,
+      image: data.image,
+    });
 
     alert("Registration successful!");
     reset();
     navigate("/login");
   } catch (err) {
     alert("Registration failed: " + err.message);
+    console.error(err);
   }
 };
+
 
 
   return (

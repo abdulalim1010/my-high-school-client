@@ -12,10 +12,11 @@ const DashboardLayout = () => {
         <div>
           <div className="p-4 text-xl font-bold border-b border-blue-500">Admin Panel</div>
           <ul className="p-4 space-y-2">
-            <li><Link to="/dashboard">Dashboard Home</Link></li>
-            <li><Link to="/dashboard/manage-users">Manage Users</Link></li>
-            <li><Link to="/dashboard/manage-content">Manage Content</Link></li>
-          </ul>
+  <li><Link to="/dashboard">Dashboard Home</Link></li>
+  <li><Link to="/dashboard/manage-users">Manage Users</Link></li>
+  <li><Link to="/dashboard/manage-content">Manage Content</Link></li>
+  <li><Link to="/dashboard/add-teacher">Add Teacher</Link></li>  {/* <-- New link */}
+</ul>
         </div>
         <div className="p-4">
           {user && (
