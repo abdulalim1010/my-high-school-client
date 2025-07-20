@@ -18,6 +18,7 @@ import AdminRoute from "../pages/dashboard/AdminRoute";
 import DashboardLayout from "../pages/dashboard/DashboardLayout";
 import DashboardHome from "../pages/dashboard/DashboardHome";
 import AddTeacher from "../pages/dashboard/AddTeacher";
+import ManageUsers from "../pages/dashboard/ManageUsers";
 
 
 
@@ -73,7 +74,12 @@ export const router = createBrowserRouter([
           },
           
          {   path:"add-teacher",
-            Component: AddTeacher}
+            Component: AddTeacher
+          },
+          {
+            path: "manage-users",
+            Component:ManageUsers
+         }
         ]
     }
       
