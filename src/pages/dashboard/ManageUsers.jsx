@@ -86,27 +86,29 @@ const ManageUsers = () => {
                   <td>{u.email}</td>
                   <td>{u.role || "user"}</td>
                   <td>{u.status || "active"}</td>
-                  <td className="text-right space-x-2">
-                    {u.role !== "admin" && (
+                  <td className="text-right">
+                    <div className="flex flex-wrap justify-end gap-2">
+                      {u.role !== "admin" && (
+                        <button
+                          onClick={() => handleMakeAdmin(u._id)}
+                          className="btn btn-xs bg-green-600 text-white"
+                        >
+                          Make Admin
+                        </button>
+                      )}
                       <button
-                        onClick={() => handleMakeAdmin(u._id)}
-                        className="btn btn-xs bg-green-600 text-white"
+                        onClick={() => handleBlockUser(u._id)}
+                        className="btn btn-xs bg-yellow-500 text-white"
                       >
-                        Make Admin
+                        {u.status === "blocked" ? "Unblock" : "Block"}
                       </button>
-                    )}
-                    <button
-                      onClick={() => handleBlockUser(u._id)}
-                      className="btn btn-xs bg-yellow-500 text-white"
-                    >
-                      {u.status === "blocked" ? "Unblock" : "Block"}
-                    </button>
-                    <button
-                      onClick={() => handleDeleteUser(u._id)}
-                      className="btn btn-xs bg-red-600 text-white"
-                    >
-                      Delete
-                    </button>
+                      <button
+                        onClick={() => handleDeleteUser(u._id)}
+                        className="btn btn-xs bg-red-600 text-white"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

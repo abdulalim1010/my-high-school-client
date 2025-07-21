@@ -21,6 +21,7 @@ import AddTeacher from "../pages/dashboard/AddTeacher";
 import ManageUsers from "../pages/dashboard/ManageUsers";
 import ManageContent from "../pages/dashboard/ManageContent";
 import AddMemory from "../pages/galary/AddMemory";
+import TimeTable from "../timetable/TimeTable";
 
 
 
@@ -57,6 +58,11 @@ export const router = createBrowserRouter([
     {
       path: "/teachers/:id",
       Component: TeacherDetails
+      },
+      {
+        path: "/timetable",
+        Component:TimeTable
+      
     },
     {
       path: 'login',

@@ -27,7 +27,7 @@ const NavBar = () => {
       <li><NavLink to="/academics" className={getLinkClass}>ACADEMIC</NavLink></li>
       <li><NavLink to="/galary" className={getLinkClass}>GALLERY</NavLink></li>
       <li><NavLink to="/teachers" className={getLinkClass}>TEACHERS</NavLink></li>
-      <li><NavLink to="/time-table" className={getLinkClass}>TIMETABLE</NavLink></li>
+      <li><NavLink to="/timetable" className={getLinkClass}>TIMETABLE</NavLink></li>
       <li><NavLink  to="/dashboard" className={getLinkClass}>Dashboard</NavLink></li>
     </>
   );
@@ -43,7 +43,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu text-black bg-white menu-sm dropdown-content rounded-box z-10 mt-3 w-52 p-2 shadow"
+            className="menu text-black bg-green-400 menu-sm dropdown-content rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
             {navItem}
           </ul>

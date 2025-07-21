@@ -1,80 +1,84 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-
-import GalleryDisplay from "./GalleryDisplay";
-import AddMemory from "./AddMemory";
-
-// Dummy image URLs – এখানে আপনি আপনার নিজের path/ছবি বসাবেন
-const images = {
-  present: ["/gallery/present1.jpg", "/gallery/present2.jpg","/gallery/present3.jpg"],
-  ex: ["/gallery/ex1.jpg", "/gallery/ex2.jpg"],
-  festival: ["/gallery/fest1.jpg", "/gallery/fest2.jpg"],
-  garden: ["/gallery/garden1.jpg", "/gallery/garden2.jpg"],
-  field: ["/gallery/field1.jpg", "/gallery/field2.jpg"],
-  classroom: ["/gallery/class1.jpg", "/gallery/class2.jpg"],
-};
-
-const GallerySection = ({ title, imgArray, onImageClick }) => (
-  <div className="mb-16">
-    <motion.h2
-      className="text-2xl font-bold text-blue-700 mb-4"
-      initial={{ x: -100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      {title}
-    </motion.h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {(imgArray || []).map((src, index) => (
-        <motion.div
-          key={index}
-          className="rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-xl"
-          whileHover={{ scale: 1.05 }}
-          onClick={() => onImageClick(src)}
-        >
-          <img src={src} alt={`${title} ${index}`} className="w-full h-60 object-cover" loading="lazy" />
-        </motion.div>
-      ))}
-    </div>
-  </div>
-);
+import React, { useEffect, useState } from "react";
+import GallerySection from "./GallerySection";
 
 const Gallery = () => {
+  const [galleryData, setGalleryData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
+
+useEffect(() => {
+  fetch("http://localhost:3000/gallery")
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch gallery data");
+      return res.json();
+    })
+    .then(data => {
+      const filteredData = data.filter(
+        item => item.imageUrl && typeof item.imageUrl === "string"
+      );
+
+      const grouped = filteredData.reduce((acc, item) => {
+        const category = item.category?.toLowerCase().trim() || "uncategorized";
+        const image = item.imageUrl;
+
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(image);
+
+        return acc;
+      }, {});
+
+      setGalleryData(grouped);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError(err.message);
+      setLoading(false);
+    });
+}, []);
+
+
+
+  if (loading) return <p>Loading gallery...</p>;
+  if (error) return <p className="text-red-500">Error: {error}</p>;
+
+  // যদি galleryData খালি হয় বা কোন ছবি না থাকে
+  if (!galleryData || Object.keys(galleryData).length === 0) {
+    return <p>No images found in the gallery.</p>;
+  }
 
   return (
     <div className="bg-blue-50 min-h-screen px-6 py-10">
-      {/* Page Header */}
-      <motion.div
-        className="text-center mb-12"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-4xl font-bold text-blue-800">আমাদের গ্যালারি</h1>
-        <p className="text-gray-600 mt-2 max-w-xl mx-auto">
-          স্কুল জীবনের প্রতিটি মুহূর্ত, হাসি, উৎসব, ক্লাসরুমের স্মৃতি — সব এখানে ধরে রাখি।
-        </p>
-        <AddMemory/>
-      </motion.div>
+      <h1 className="text-4xl font-bold text-blue-800 mb-12 text-center">
+        আমাদের গ্যালারি
+      </h1>
 
-      {/* Sections */}
-      <GalleryDisplay/>
-      <GallerySection title="🎒 বর্তমান শিক্ষার্থীরা" imgArray={images.present} onImageClick={setSelectedImg} />
-      <GallerySection title="🎓 প্রাক্তন শিক্ষার্থীরা" imgArray={images.ex} onImageClick={setSelectedImg} />
-      <GallerySection title="🎉 উৎসব ও অনুষ্ঠান" imgArray={images.festival} onImageClick={setSelectedImg} />
-      <GallerySection title="🌿 স্কুলের বাগান" imgArray={images.garden} onImageClick={setSelectedImg} />
-      <GallerySection title="⚽ খেলার মাঠ" imgArray={images.field} onImageClick={setSelectedImg} />
-      <GallerySection title="🏫 ক্লাসরুমের দৃশ্য" imgArray={images.classroom} onImageClick={setSelectedImg} />
+      {Object.entries(galleryData).map(([category, images]) => (
+        <GallerySection
+          key={category}
+          title={getCategoryTitle(category)}
+          imgArray={images}
+          onImageClick={setSelectedImg}
+        />
+      ))}
 
-      {/* Modal Preview */}
+      {/* Modal */}
       {selectedImg && (
         <dialog open className="modal" onClick={() => setSelectedImg(null)}>
           <div className="modal-box max-w-4xl">
-            <img src={selectedImg} className="w-full h-auto rounded" alt="Zoomed Preview" />
+            <img
+              src={selectedImg}
+              className="w-full h-auto rounded"
+              alt="Zoomed Preview"
+            />
             <div className="modal-action">
               <form method="dialog">
-                <button className="btn btn-sm btn-error" onClick={() => setSelectedImg(null)}>বন্ধ করুন</button>
+                <button
+                  className="btn btn-sm btn-error"
+                  onClick={() => setSelectedImg(null)}
+                >
+                  বন্ধ করুন
+                </button>
               </form>
             </div>
           </div>
@@ -82,6 +86,27 @@ const Gallery = () => {
       )}
     </div>
   );
+};
+
+const getCategoryTitle = (category) => {
+  switch (category) {
+    case "present":
+      return "🎒 বর্তমান শিক্ষার্থীরা";
+    case "ex":
+      return "🎓 প্রাক্তন শিক্ষার্থীরা";
+    case "festival":
+      return "🎉 উৎসব ও অনুষ্ঠান";
+    case "garden":
+      return "🌿 স্কুলের বাগান";
+    case "field":
+      return "⚽ খেলার মাঠ";
+    case "classroom":
+      return "🏫 ক্লাসরুমের দৃশ্য";
+    case "teachers":
+      return "👩‍🏫 শিক্ষকবৃন্দ";
+    default:
+      return "অন্যান্য";
+  }
 };
 
 export default Gallery;
