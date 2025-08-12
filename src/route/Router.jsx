@@ -3,7 +3,7 @@ import {
  
 } from "react-router";
 import MainLayouts from "../pages/maynlayouts/MainLayouts";
-import Home from "../pages/home/Hero";
+
 import About from "../pages/about/About";
 import Academic from "../pages/academic/Academic";
 
@@ -22,6 +22,8 @@ import ManageUsers from "../pages/dashboard/ManageUsers";
 import ManageContent from "../pages/dashboard/ManageContent";
 import AddMemory from "../pages/galary/AddMemory";
 import TimeTable from "../timetable/TimeTable";
+import Home from "../pages/home/Home";
+import EventsPage from "../pages/EventsPage";
 
 
 
@@ -50,7 +52,11 @@ export const router = createBrowserRouter([
       , {
       path: '/galary',
       Component: Gallery
-    }
+      }
+      , {
+        path: "/events",
+        Component:EventsPage,
+      }
       , {
       path: "/teachers",
       Component: Teachers

@@ -1,10 +1,14 @@
 import React from 'react';
-import Hero from './Hero';
+
+import Academic from '../academic/Academic';
+import Hero from './hero';
 
 const Home = () => {
   return (
     <div>
-      <Hero></Hero>
+      <Hero/>
+
+      <Academic/>
     </div>
   );
 };
