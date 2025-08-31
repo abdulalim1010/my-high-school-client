@@ -43,9 +43,11 @@ const days = ["রবিবার", "সোমবার", "মঙ্গলবা
 const TimeTable = () => {
   const [selectedClass, setSelectedClass] = useState("৮ম শ্রেণি");
 
+  const shades = ["bg-blue-700", "bg-blue-600", "bg-blue-500", "bg-blue-400"]; // staggered shades
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-6">
+    <div className="min-h-screen px-4 py-8 bg-blue-900 text-white">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
         🕘 আমাদের সাপ্তাহিক ক্লাস রুটিন
       </h1>
 
@@ -55,7 +57,7 @@ const TimeTable = () => {
         <select
           value={selectedClass}
           onChange={(e) => setSelectedClass(e.target.value)}
-          className="border rounded px-4 py-2 text-lg"
+          className="border border-gray-400 rounded px-4 py-2 text-lg bg-blue-800 text-white hover:bg-blue-700"
         >
           {Object.keys(routines).map((cls) => (
             <option key={cls} value={cls}>
@@ -68,7 +70,7 @@ const TimeTable = () => {
       {/* Routine Table */}
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300 text-center">
-          <thead className="bg-blue-100">
+          <thead className="bg-blue-800 text-white">
             <tr>
               <th className="border px-4 py-2">দিন</th>
               <th className="border px-4 py-2">৮:০০–৯:০০</th>
@@ -79,10 +81,20 @@ const TimeTable = () => {
           </thead>
           <tbody>
             {routines[selectedClass].map((periods, i) => (
-              <tr key={i} className="hover:bg-blue-50">
-                <td className="border px-4 py-2 font-semibold">{days[i]}</td>
+              <tr
+                key={i}
+                className="transition-colors duration-300 hover:bg-blue-600"
+              >
+                <td className={`border px-4 py-2 font-semibold ${shades[i % shades.length]}`}>
+                  {days[i]}
+                </td>
                 {periods.map((subject, j) => (
-                  <td key={j} className="border px-4 py-2">
+                  <td
+                    key={j}
+                    className={`border px-4 py-2 transition-colors duration-300 ${
+                      shades[(i + j) % shades.length]
+                    } hover:bg-blue-500`}
+                  >
                     {subject}
                   </td>
                 ))}
