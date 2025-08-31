@@ -6,7 +6,7 @@ import image from '../../assets/alimhif.jpeg'
 
 const About = () => {
   return (
-    <div className="bg-blue-50 min-h-screen px-6 py-10 space-y-16">
+    <div className="bg-blue-400 min-h-screen px-6 py-10 space-y-16">
       {/* Title */}
       <motion.div
         className="text-center"
@@ -52,7 +52,7 @@ const About = () => {
       </div>
 
       {/* Head Teacher's Message */}
-      <div className="bg-white shadow-md p-6 rounded-lg">
+      <div className=" shadow-md p-6 rounded-lg">
         <div className="flex flex-col lg:flex-row items-center gap-6">
           <img
             src={headTeacherImg}
@@ -87,22 +87,22 @@ const About = () => {
 
       {/* Core Values */}
       <motion.div
-        className="text-left bg-base-200 p-6 rounded-lg"
+        className="text-left  p-6 rounded-lg"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <h2 className="text-2xl font-bold text-blue-800 mb-3">আমাদের মূলনীতি</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-700">
-          <span className="badge badge-lg bg-blue-100 text-blue-700">সততা</span>
-          <span className="badge badge-lg bg-blue-100 text-blue-700">নেতৃত্ব</span>
-          <span className="badge badge-lg bg-blue-100 text-blue-700">সহানুভূতি</span>
-          <span className="badge badge-lg bg-blue-100 text-blue-700">পরিশ্রম</span>
+          <span className="badge badge-lg text-blue-700">সততা</span>
+          <span className="badge badge-lg  text-blue-700">নেতৃত্ব</span>
+          <span className="badge badge-lg  text-blue-700">সহানুভূতি</span>
+          <span className="badge badge-lg  text-blue-700">পরিশ্রম</span>
         </div>
       </motion.div>
 
       {/* Future Vision */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className=" p-6 rounded-lg shadow-sm">
         <h2 className="text-2xl font-semibold text-blue-700 mb-2">ভবিষ্যৎ পরিকল্পনা</h2>
         <p className="text-gray-700">
           আমরা চাই স্কুলকে ডিজিটাল প্ল্যাটফর্মে উন্নীত করতে, যেখানে থাকবে স্মার্ট ক্লাসরুম,
@@ -113,7 +113,7 @@ const About = () => {
 
       {/* Message for Students */}
       <motion.div
-        className="bg-blue-100 p-6 rounded-lg shadow-inner"
+        className=" p-6 rounded-lg shadow-inner"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}

@@ -5,9 +5,9 @@ import schoolimage2 from '../../assets/image2.jpg';
 
 const Hero = () => {
   return (
-    <div className="bg-blue-50 min-h-screen pt-10">
+    <div className=" min-h-screen pt-10">
       {/* Banner Section */}
-      <div className="bg-base-200 rounded-lg mx-4 shadow-md p-6">
+      <div className=" rounded-lg mx-4 shadow-md p-6">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* ✍️ Text Section (2/5) */}
           <div className="w-full lg:basis-2/5 space-y-4 text-left">

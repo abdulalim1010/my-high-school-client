@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import sceicnimage from '../../assets/science.avif'
-import humanimage from '../../assets/hu,an1).jfif'
+import humanimage from '../../assets/science.jpg'
 import commarceimage from '../../assets/comarce.jpg'
 import calendeer  from '../../assets/calender.avif'
 
 const Academic = () => {
   return (
-    <div className="bg-blue-50 min-h-screen px-6 py-10 space-y-16">
+    <div className=" min-h-screen px-6 py-10 space-y-16">
       {/* Page Title */}
       <motion.div
         className="text-center"
@@ -35,17 +35,17 @@ const Academic = () => {
       <section>
   <h2 className="text-2xl text-center font-semibold text-blue-700 mb-3">বিষয়ভিত্তিক বিভাগ</h2>
   <div className="grid md:grid-cols-3 gap-6 text-gray-800">
-    <div className="bg-white shadow-md p-4 rounded-lg">
+    <div className=" shadow-md p-4 rounded-lg">
       <img src={sceicnimage } className="h-60 mb-2 mx-auto" alt="Science" />
       <h3 className="font-bold text-lg mb-2 text-green-600 text-center">বিজ্ঞান বিভাগ</h3>
       <p className="text-sm text-center">পদার্থ, রসায়ন, জীববিজ্ঞান ও গণিতের পাঠদান।</p>
     </div>
-    <div className="bg-white shadow-md p-4 rounded-lg">
+    <div className=" shadow-md p-4 rounded-lg">
       <img src={ humanimage} className="h-60 mb-2 mx-auto" alt="Humanities" />
       <h3 className="font-bold text-lg mb-2 text-purple-600 text-center">মানবিক বিভাগ</h3>
       <p className="text-sm text-center">ইতিহাস, ভূগোল, বাংলা ও সামাজিক বিজ্ঞানের গুরুত্ব।</p>
     </div>
-    <div className="bg-white shadow-md p-4 rounded-lg">
+    <div className=" shadow-md p-4 rounded-lg">
       <img src={commarceimage} className="h-60 mb-2 mx-auto" alt="Commerce" />
       <h3 className="font-bold text-lg mb-2 text-orange-600 text-center">বাণিজ্য বিভাগ</h3>
       <p className="text-sm text-center">হিসাববিজ্ঞান, অর্থনীতি ও ব্যবস্থাপনা বিষয় অন্তর্ভুক্ত।</p>
@@ -54,7 +54,7 @@ const Academic = () => {
 </section>
 
       {/* Section: ক্লাস রুটিন */}
-      <section className="bg-white shadow-sm p-6 rounded-lg">
+      <section className=" shadow-sm p-6 rounded-lg">
   <h2 className="text-2xl text-center font-semibold text-blue-700 mb-3">ক্লাস রুটিন</h2>
   <div className="flex flex-col md:flex-row items-center gap-6">
     <div className="flex-1 space-y-2 text-gray-700">
@@ -78,7 +78,7 @@ const Academic = () => {
       <section className="mt-8">
   <h2 className="text-2xl text-center font-semibold text-blue-700 mb-4">পরীক্ষার সময়সূচি</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
-    <div className="card bg-blue-100 shadow-md p-4 rounded-lg">
+    <div className="card  shadow-md p-4 rounded-lg">
       <h3 className="font-semibold text-lg text-blue-800 mb-2">১ম টার্ম</h3>
       <p>সময়ঃ মার্চ মাস</p>
     </div>
@@ -86,7 +86,7 @@ const Academic = () => {
       <h3 className="font-semibold text-lg text-blue-800 mb-2">২য় টার্ম</h3>
       <p>সময়ঃ জুলাই মাস</p>
     </div>
-    <div className="card bg-blue-100 shadow-md p-4 rounded-lg">
+    <div className="card  shadow-md p-4 rounded-lg">
       <h3 className="font-semibold text-lg text-blue-800 mb-2">বার্ষিক পরীক্ষা</h3>
       <p>সময়ঃ নভেম্বর মাস</p>
     </div>
@@ -95,7 +95,7 @@ const Academic = () => {
 
 
       {/* Section: লাইব্রেরি ও উপকরণ */}
-      <section className="bg-base-200 p-6 rounded-lg shadow-inner">
+      <section className=" p-6 rounded-lg shadow-inner">
         <h2 className="text-2xl font-semibold text-blue-800 mb-3">লাইব্রেরি ও শিক্ষাসহায়ক উপকরণ</h2>
         <ul className="list-disc pl-5 text-gray-700">
           <li>স্কুলে রয়েছে ২০০০+ বইয়ের একটি আধুনিক লাইব্রেরি</li>

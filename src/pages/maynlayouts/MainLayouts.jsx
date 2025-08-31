@@ -5,7 +5,7 @@ import Footer from '../footer/Footer';
 
 const MainLayouts = () => {
   return (
-    <div>
+    <div className='bg-blue-400 min-h-screen '>
       <header><NavBar/></header>
       <main><Outlet/></main>
       <footer><Footer/></footer>
