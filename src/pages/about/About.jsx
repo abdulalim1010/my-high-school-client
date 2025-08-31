@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import schoolOldPhoto from "../../assets/real.jpg";
 import headTeacherImg from '../../assets/headsir.jpg'
+import image from '../../assets/alimhif.jpeg'
 
 const About = () => {
   return (
@@ -16,6 +17,8 @@ const About = () => {
         <h1 className="text-4xl font-bold text-blue-800 mb-2">
           আমাদের স্কুল সম্পর্কে
         </h1>
+
+        <img className="w-full mx-auto" src={image} alt="" />
         <p className="text-gray-600 max-w-2xl mx-auto">
           একটি প্রতিষ্ঠান নয় — Sotokaler High School আমাদের শৈশবের গল্প।
         </p>

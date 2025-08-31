@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("http://localhost:3000/events")
       .then((res) => res.json())
       .then((data) => setEvents(data));
   }, []);
@@ -33,9 +34,13 @@ export default function EventsPage() {
                 <p className="text-sm text-gray-500 mt-1">{event.date}</p>
                 <p className="text-sm text-gray-500">{event.location}</p>
                 <p className="text-gray-600 mt-3">{event.description}</p>
-                <button className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                  বিস্তারিত জানুন
-                </button>
+                
+<Link
+  to={`/event/${event.id}`}
+  className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+>
+  বিস্তারিত জানুন
+</Link>
               </div>
             </div>
           ))}

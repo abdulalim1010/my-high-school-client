@@ -24,6 +24,8 @@ import AddMemory from "../pages/galary/AddMemory";
 import TimeTable from "../timetable/TimeTable";
 import Home from "../pages/home/Home";
 import EventsPage from "../pages/EventsPage";
+import { Component } from "react";
+import EventDetails from "../pages/EventDetails";
 
 
 
@@ -56,8 +58,12 @@ export const router = createBrowserRouter([
       , {
         path: "/events",
         Component:EventsPage,
-      }
-      , {
+      },
+      {
+        path: "/event/:id",
+        Component: EventDetails
+      },
+       {
       path: "/teachers",
       Component: Teachers
     },
