@@ -30,7 +30,7 @@ const SocialLogin = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100">
+   
       <div className="p-8 bg-white rounded-lg shadow-xl w-full max-w-md text-center">
         <h2 className="text-2xl font-bold mb-6 text-blue-700">Login With Google</h2>
         <button
@@ -41,7 +41,7 @@ const SocialLogin = () => {
           Sign in with Google
         </button>
       </div>
-    </div>
+  
   );
 };
 
