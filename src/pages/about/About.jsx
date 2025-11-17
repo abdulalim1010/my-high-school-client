@@ -1,132 +1,162 @@
 import React from "react";
 import { motion } from "framer-motion";
-import schoolOldPhoto from "../../assets/real.jpg";
-import headTeacherImg from '../../assets/headsir.jpg'
-import image from '../../assets/alimhif.jpeg'
+import legacyImg from "../../assets/real.jpg";
+import headTeacherImg from "../../assets/headsir.jpg";
+import campusImg from "../../assets/alimhif.jpeg";
+
+const milestones = [
+  {
+    year: "1966",
+    title: "প্রতিষ্ঠার গল্প",
+    description:
+      "গ্রামবাংলার আলোকিত কিছু মানুষ একটি বটগাছের নিচে প্রথম ক্লাস চালু করেছিলেন।",
+  },
+  {
+    year: "1995",
+    title: "বিজ্ঞান ল্যাব চালু",
+    description: "নিজস্ব ল্যাব ও লাইব্রেরির মাধ্যমে প্রযুক্তিনির্ভর পাঠদান শুরু।",
+  },
+  {
+    year: "2022",
+    title: "ডিজিটাল স্কুল",
+    description: "অনলাইন ফলাফল, স্মার্ট ক্লাসরুম এবং ই-লার্নিং প্ল্যাটফর্ম চালু।",
+  },
+];
+
+const coreValues = ["সততা", "নেতৃত্ব", "সহানুভূতি", "সম্মান", "পরিশ্রম", "নবপ্রবর্তন"];
 
 const About = () => {
   return (
-    <div className=" min-h-screen px-6 py-10 space-y-16 text-white">
-      {/* Title */}
+    <section className="space-y-14">
       <motion.div
-        className="text-center"
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
+        className="glass-panel overflow-hidden"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <h1 className="text-4xl font-bold mb-8">
-          আমাদের স্কুল সম্পর্কে
-        </h1>
-
-        <img className="w-full rounded-3xl mx-auto" src={image} alt="" />
-        <p className="max-w-2xl font-bold mt-8 text-6xl mx-auto">
-          আমাদের শৈশবের গল্প।
-        </p>
+        <div className="grid lg:grid-cols-2 gap-0">
+          <div className="p-6 sm:p-10 space-y-4">
+            <p className="uppercase text-xs tracking-[0.6em] text-slate-300">Our Story</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              আমাদের শৈশবের গল্প— আমানতুল্লাহ হাই স্কুল
+            </h1>
+            <p className="text-slate-200">
+              শিক্ষা, সংস্কৃতি ও মানবিকতার ঐতিহ্যে আমরা গড়ে তুলছি আগামী দিনের স্বপ্নবাজ প্রজন্ম।
+            </p>
+          </div>
+          <div className="min-h-[260px]">
+            <img src={campusImg} alt="Campus" className="w-full h-full object-cover" />
+          </div>
+        </div>
       </motion.div>
 
-      {/* History + Image */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 items-center">
         <motion.div
           className="space-y-4"
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-semibold">প্রতিষ্ঠার পেছনের গল্প</h2>
-          <p className="leading-relaxed">
-            ১৯৬৬সালে যুদ্ধবিধ্বস্ত বাংলাদেশের গ্রামাঞ্চলে শিক্ষার আলো পৌঁছে দিতে
-            Sotokaler High School-এর জন্ম। সমাজের কিছু আলোকিত মানুষ মিলে একটি
-            বটগাছের নিচে শুরু করেছিলেন এই শিক্ষাপ্রতিষ্ঠান। আজ সেই গাছ, সেই ক্লাসরুম,
-            সবই সাক্ষী আমাদের ইতিহাসের।
+          <h2 className="text-3xl font-bold text-white">প্রতিষ্ঠার পেছনের গল্প</h2>
+          <p className="text-slate-200 leading-relaxed">
+            ১৯৬৬ সালে গ্রামের শিশুদের জন্য মানসম্মত শিক্ষা নিশ্চিত করতে Sotokaler High School-এর জন্ম।
+            একটি বটগাছের তলায় চালু হওয়া সেই যাত্রা আজ হয়েছে প্রযুক্তিনির্ভর পূর্ণাঙ্গ শিক্ষা প্রতিষ্ঠান।
           </p>
         </motion.div>
-
-        <motion.img
-          src={schoolOldPhoto}
-          alt="Old school"
-          className="rounded-xl shadow-lg border-4 border-white"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-        />
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="rounded-[24px] overflow-hidden border border-white/10 glass-panel"
+        >
+          <img src={legacyImg} alt="Legacy" className="w-full h-full object-cover" />
+        </motion.div>
       </div>
 
-      {/* Head Teacher's Message */}
-      <div className="shadow-md p-6 rounded-lg">
-        <div className="flex flex-col lg:flex-row items-center gap-6">
+      <motion.div
+        className="glass-panel p-6 sm:p-10 space-y-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h3 className="text-2xl font-semibold text-white">প্রধান শিক্ষকের বাণী</h3>
+        <div className="flex flex-col md:flex-row items-center gap-6">
           <img
             src={headTeacherImg}
             alt="Head Teacher"
-            className="w-32 h-32 rounded-full border-4 border-white object-cover"
+            className="w-28 h-28 rounded-full object-cover border border-white/30"
           />
-          <div>
-            <h3 className="text-4xl font-semibold mb-1">প্রধান শিক্ষকের বাণী</h3>
-            <p>
-              “Sotokaler High School শুধু পড়াশোনার স্থান নয়, বরং একজন আদর্শ মানুষ
-              হয়ে গড়ে ওঠার চারণভূমি। আমরা চেষ্টা করি প্রতিটি শিক্ষার্থীকে দায়িত্বশীল,
-              মানবিক ও সৃজনশীল করে গড়ে তুলতে।”
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Achievements */}
-      <motion.div
-        className="text-center"
-        initial={{ y: 40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl font-bold mb-4">আমাদের গৌরব</h2>
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto list-disc px-5">
-          <li>জেলা পর্যায়ে ৩ বার সেরা শিক্ষা প্রতিষ্ঠান পুরস্কার</li>
-          <li>একাধিক জাতীয় পর্যায়ের ক্রীড়া ও বিতর্ক প্রতিযোগিতায় বিজয়</li>
-          <li>প্রাক্তন শিক্ষার্থীরা ডাক্তার, প্রকৌশলী ও প্রশাসনে কর্মরত</li>
-        </ul>
-      </motion.div>
-
-      {/* Core Values */}
-      <motion.div
-        className="text-left p-6 rounded-lg"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-2xl font-bold mb-3">আমাদের মূলনীতি</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-          <span className="badge badge-lg">সততা</span>
-          <span className="badge badge-lg">নেতৃত্ব</span>
-          <span className="badge badge-lg">সহানুভূতি</span>
-          <span className="badge badge-lg">পরিশ্রম</span>
+          <p className="text-slate-200 leading-relaxed">
+            “Amanatullah High School শুধু পড়াশোনার স্থান নয়, বরং দায়িত্বশীল ও মানবিক নাগরিক তৈরির
+            এক উত্তম ক্ষেত্র। আমরা প্রতিটি শিক্ষার্থীকে স্বপ্ন দেখতে এবং স্বপ্ন পূরণে অনুপ্রাণিত করি।”
+          </p>
         </div>
       </motion.div>
 
-      {/* Future Vision */}
-      <div className="p-6 rounded-lg shadow-sm">
-        <h2 className="text-2xl font-semibold mb-2">ভবিষ্যৎ পরিকল্পনা</h2>
-        <p>
-          আমরা চাই স্কুলকে ডিজিটাল প্ল্যাটফর্মে উন্নীত করতে, যেখানে থাকবে স্মার্ট ক্লাসরুম,
-          লাইব্রেরি, অনলাইন রেজাল্ট ও ই-লার্নিং সুবিধা। ভবিষ্যৎ শিক্ষাব্যবস্থা প্রযুক্তিনির্ভর —
-          আর আমাদের লক্ষ্য, সেখানেই অগ্রণী হয়ে দাঁড়ানো।
-        </p>
-      </div>
-
-      {/* Message for Students */}
       <motion.div
-        className="p-6 rounded-lg shadow-inner"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
+        className="glass-panel p-6 sm:p-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <h2 className="text-xl font-semibold mb-2">
-          আমাদের ছাত্রছাত্রীদের প্রতি বার্তা:
-        </h2>
-        <p>
-          প্রিয় শিক্ষার্থীরা, স্কুল জীবনের প্রতিটি দিন তোমার ভবিষ্যতের ভিত গড়ছে। সময়কে
-          গুরুত্ব দাও, শিখতে ভালোবাসো — কারণ, তুমি আগামী দিনের বাংলাদেশ।
+        <h3 className="text-2xl font-semibold text-white mb-6">মাইলফলক</h3>
+        <div className="space-y-6">
+          {milestones.map((item) => (
+            <div key={item.year} className="flex flex-col md:flex-row gap-4 md:items-center">
+              <div className="w-24 h-24 rounded-3xl bg-white/10 flex items-center justify-center text-2xl font-bold text-white border border-white/10">
+                {item.year}
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-white">{item.title}</h4>
+                <p className="text-slate-200">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="glass-panel p-6 sm:p-10 space-y-6"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h3 className="text-2xl font-semibold text-white">আমাদের মূলনীতি</h3>
+        <div className="flex flex-wrap gap-3">
+          {coreValues.map((value) => (
+            <span
+              key={value}
+              className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-semibold text-white"
+            >
+              {value}
+            </span>
+          ))}
+        </div>
+        <p className="text-slate-200">
+          আমরা চাই আগামী প্রজন্মকে এমনভাবে গড়ে তুলতে যেন তারা বিশ্বব্যাপী চ্যালেঞ্জ মোকাবিলা করতে পারে।
         </p>
       </motion.div>
-    </div>
+
+      <motion.div
+        className="glass-panel p-6 sm:p-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h3 className="text-2xl font-semibold text-white mb-3">ভবিষ্যৎ পরিকল্পনা</h3>
+        <p className="text-slate-200 leading-relaxed">
+          স্মার্ট লাইব্রেরি, এআই লার্নিং মডিউল ও আন্তর্জাতিক সহযোগিতার মাধ্যমে শিক্ষার্থীদের চতুর্থ
+          শিল্পবিপ্লবের উপযোগী করে গড়ে তোলাই আমাদের লক্ষ্য।
+        </p>
+      </motion.div>
+    </section>
   );
 };
 

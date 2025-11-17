@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 const routines = {
@@ -43,68 +44,61 @@ const days = ["রবিবার", "সোমবার", "মঙ্গলবা
 const TimeTable = () => {
   const [selectedClass, setSelectedClass] = useState("৮ম শ্রেণি");
 
-  const shades = ["bg-blue-700", "bg-blue-600", "bg-blue-500", "bg-blue-400"]; // staggered shades
-
   return (
-    <div className="min-h-screen px-4 py-8 bg-blue-900 text-white">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
-        🕘 আমাদের সাপ্তাহিক ক্লাস রুটিন
-      </h1>
-
-      {/* Dropdown */}
-      <div className="mb-6 text-center">
-        <label className="mr-3 font-medium text-lg">ক্লাস নির্বাচন করুন:</label>
-        <select
-          value={selectedClass}
-          onChange={(e) => setSelectedClass(e.target.value)}
-          className="border border-gray-400 rounded px-4 py-2 text-lg bg-blue-800 text-white hover:bg-blue-700"
-        >
-          {Object.keys(routines).map((cls) => (
-            <option key={cls} value={cls}>
-              {cls}
-            </option>
-          ))}
-        </select>
+    <section className="space-y-8">
+      <div className="text-center space-y-3">
+        <p className="uppercase text-xs tracking-[0.6em] text-slate-300">Weekly Routine</p>
+        <h1 className="section-title">আমাদের ক্লাস রুটিন</h1>
+        <p className="section-subtitle">প্রতিটি শ্রেণির জন্য সুনির্দিষ্ট সময়সূচি যাতে শেখা হয় আরও পরিকল্পিত।</p>
       </div>
 
-      {/* Routine Table */}
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border border-gray-300 text-center">
-          <thead className="bg-blue-800 text-white">
-            <tr>
-              <th className="border px-4 py-2">দিন</th>
-              <th className="border px-4 py-2">৮:০০–৯:০০</th>
-              <th className="border px-4 py-2">৯:০০–১০:০০</th>
-              <th className="border px-4 py-2">১০:৩০–১১:৩০</th>
-              <th className="border px-4 py-2">১২:০০–১:০০</th>
-            </tr>
-          </thead>
-          <tbody>
-            {routines[selectedClass].map((periods, i) => (
-              <tr
-                key={i}
-                className="transition-colors duration-300 hover:bg-blue-600"
-              >
-                <td className={`border px-4 py-2 font-semibold ${shades[i % shades.length]}`}>
-                  {days[i]}
-                </td>
-                {periods.map((subject, j) => (
-                  <td
-                    key={j}
-                    className={`border px-4 py-2 transition-colors duration-300 ${
-                      shades[(i + j) % shades.length]
-                    } hover:bg-blue-500`}
-                  >
-                    {subject}
-                  </td>
-                ))}
-              </tr>
+      <div className="glass-panel p-6 space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <label className="text-sm text-slate-200 font-semibold">ক্লাস নির্বাচন করুন</label>
+          <select
+            value={selectedClass}
+            onChange={(e) => setSelectedClass(e.target.value)}
+            className="px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white"
+          >
+            {Object.keys(routines).map((cls) => (
+              <option key={cls} value={cls} className="text-slate-900">
+                {cls}
+              </option>
             ))}
-          </tbody>
-        </table>
+          </select>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-center text-sm border-separate border-spacing-0">
+            <thead>
+              <tr className="text-slate-200">
+                <th className="py-3 px-4 bg-white/5 border border-white/10">দিন</th>
+                <th className="py-3 px-4 bg-white/5 border border-white/10">৮:০০–৯:০০</th>
+                <th className="py-3 px-4 bg-white/5 border border-white/10">৯:০০–১০:০০</th>
+                <th className="py-3 px-4 bg-white/5 border border-white/10">১০:৩০–১১:৩০</th>
+                <th className="py-3 px-4 bg-white/5 border border-white/10">১২:০০–১:০০</th>
+              </tr>
+            </thead>
+            <tbody>
+              {routines[selectedClass].map((periods, dayIndex) => (
+                <tr key={days[dayIndex]}>
+                  <td className="py-4 px-4 bg-white/5 border border-white/10 font-semibold text-white">
+                    {days[dayIndex]}
+                  </td>
+                  {periods.map((subject, slotIndex) => (
+                    <td key={`${dayIndex}-${slotIndex}`} className="py-4 px-4 border border-white/10 text-slate-200">
+                      {subject}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default TimeTable;
+

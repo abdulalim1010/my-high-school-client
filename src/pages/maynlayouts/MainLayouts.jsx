@@ -1,27 +1,25 @@
 import React from "react";
 import { Outlet } from "react-router";
 import NavBar from "../navBar/NavBar";
-import Footer from "../footer/Footer";
+
 
 const MainLayouts = () => {
   return (
-    <div
-      className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-600 to-blue-900 
-      dark:from-gray-900 dark:via-blue-900 dark:to-blue-700 transition-all duration-700"
-    >
-      {/* Fixed Navbar */}
-      <header className="fixed top-0 left-0 w-full z-50">
+    <div className="min-h-screen bg-transparent">
+      <header className="fixed top-0 left-0 right-0 z-50">
         <NavBar />
       </header>
 
-      {/* Main Content */}
-      <main >
-        <Outlet />
+      <main className="relative z-10 pt-28 pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <Outlet />
+        </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-10">
-        <Footer />
+      <footer className="px-4 sm:px-6 lg:px-10 pb-10">
+        <div className="max-w-7xl mx-auto">
+         
+        </div>
       </footer>
     </div>
   );

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,42 +12,39 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-800 py-12 text-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
-          স্কুলের অনুষ্ঠান
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className="bg-blue-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5">
-                <h2 className="text-xl font-semibold text-green-300">
-                  {event.title}
-                </h2>
-                <p className="text-sm text-gray-200 mt-1">{event.date}</p>
-                <p className="text-sm text-gray-200">{event.location}</p>
-                <p className="text-gray-100 mt-3">{event.description}</p>
-
-                <Link
-                  to={`/event/${event.id}`}
-                  className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-                >
-                  বিস্তারিত জানুন
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="space-y-10">
+      <div className="text-center space-y-3">
+        <p className="uppercase text-xs tracking-[0.6em] text-slate-300">Campus Life</p>
+        <h1 className="section-title">স্কুলের অনুষ্ঠান</h1>
+        <p className="section-subtitle">প্রতিটি ইভেন্টে থাকে আনন্দ, শেখার সুযোগ ও নতুন অভিজ্ঞতা।</p>
       </div>
-    </div>
+
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {events.map((event) => (
+          <div key={event.id} className="glass-panel overflow-hidden flex flex-col">
+            <div className="h-48 overflow-hidden">
+              <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+            </div>
+            <div className="p-6 space-y-3 flex-1">
+              <div className="flex items-center justify-between text-xs uppercase tracking-widest text-slate-300">
+                <span>{event.date}</span>
+                <span>{event.location}</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white">{event.title}</h3>
+              <p className="text-slate-300 text-sm">{event.description}</p>
+            </div>
+            <div className="p-6 pt-0">
+              <Link
+                to={`/event/${event.id}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-white transition"
+              >
+                বিস্তারিত জানুন →
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
+

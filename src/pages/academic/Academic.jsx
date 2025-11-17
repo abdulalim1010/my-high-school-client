@@ -1,114 +1,122 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import sceicnimage from '../../assets/science.avif';
-import humanimage from '../../assets/science.jpg';
-import commarceimage from '../../assets/comarce.jpg';
-import calendeer from '../../assets/calender.avif';
+import React from "react";
+import { motion } from "framer-motion";
+import scienceImage from "../../assets/science.avif";
+import humanImage from "../../assets/science.jpg";
+import commerceImage from "../../assets/comarce.jpg";
+import calendar from "../../assets/calender.avif";
 
 const Academic = () => {
   return (
-    <div className="min-h-screen px-6 py-10 space-y-16 bg-blue-800 text-white">
-      {/* Page Title */}
+    <section className="space-y-10">
       <motion.div
-        className="text-center"
-        initial={{ y: -50, opacity: 0 }}
+        className="text-center space-y-4"
+        initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <h1 className="text-4xl font-bold mb-2">একাডেমিক তথ্য</h1>
-        <p className="max-w-2xl mx-auto">
-          Sotokaler High School - যেখানে জ্ঞানের সাথে নৈতিকতা ও সংস্কৃতির সমন্বয় ঘটে।
+        <p className="uppercase text-xs tracking-[0.65em] text-slate-300">Academic Excellence</p>
+        <h2 className="section-title">একাডেমিক তথ্য</h2>
+        <p className="section-subtitle">
+          আমানতুল্লাহ হাই স্কুলে আমরা শ্রেণিকক্ষের বাইরে গিয়ে বাস্তবভিত্তিক শেখার উপর জোর দেই।
         </p>
       </motion.div>
 
-      {/* Section: শ্রেণি কাঠামো */}
-      <motion.section
-        initial={{ x: -50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1 }}
+      <motion.div
+        className="glass-panel p-6 sm:p-10 space-y-6"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl font-semibold mb-3">শ্রেণি কাঠামো</h2>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>প্রথম শ্রেণি থেকে দশম শ্রেণি পর্যন্ত পাঠদান</li>
-          <li>প্রতি শ্রেণিতে দুটি সেকশন (A ও B)</li>
-          <li>একটি শ্রেণিতে গড়ে ৩০-৪০ জন শিক্ষার্থী</li>
-        </ul>
-      </motion.section>
+        <h3 className="text-2xl font-semibold text-white">শ্রেণি কাঠামো</h3>
+        <div className="grid md:grid-cols-3 gap-4 text-slate-200 text-sm">
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p className="text-4xl font-black text-white">১-১০</p>
+            <p>প্রথম থেকে দশম শ্রেণি পর্যন্ত সমন্বিত কারিকুলাম</p>
+          </div>
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p className="text-4xl font-black text-white">২</p>
+            <p>প্রতি শ্রেণিতে দুইটি সেকশন (A ও B) - ছোট ব্যাচে নিবিড় যত্ন</p>
+          </div>
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p className="text-4xl font-black text-white">৩৫</p>
+            <p>গড় শিক্ষার্থী সংখ্যা যাতে সহজেই ব্যক্তিগত মনোযোগ দেওয়া যায়</p>
+          </div>
+        </div>
+      </motion.div>
 
-      {/* Section: বিষয় বিভাগ */}
-      <motion.section
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-2xl text-center font-semibold mb-3">বিষয়ভিত্তিক বিভাগ</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <motion.div
-            className="shadow-md p-4 rounded-lg bg-blue-700"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <img src={sceicnimage} className="h-60 mb-2 mx-auto rounded" alt="Science" />
-            <h3 className="font-bold text-lg mb-2 text-green-300 text-center">বিজ্ঞান বিভাগ</h3>
-            <p className="text-sm text-center">পদার্থ, রসায়ন, জীববিজ্ঞান ও গণিতের পাঠদান।</p>
-          </motion.div>
-
-          <motion.div
-            className="shadow-md p-4 rounded-lg bg-blue-700"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <img src={humanimage} className="h-60 mb-2 mx-auto rounded" alt="Humanities" />
-            <h3 className="font-bold text-lg mb-2 text-purple-300 text-center">মানবিক বিভাগ</h3>
-            <p className="text-sm text-center">ইতিহাস, ভূগোল, বাংলা ও সামাজিক বিজ্ঞানের গুরুত্ব।</p>
-          </motion.div>
-
-          <motion.div
-            className="shadow-md p-4 rounded-lg bg-blue-700"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <img src={commarceimage} className="h-60 mb-2 mx-auto rounded" alt="Commerce" />
-            <h3 className="font-bold text-lg mb-2 text-orange-300 text-center">বাণিজ্য বিভাগ</h3>
-            <p className="text-sm text-center">হিসাববিজ্ঞান, অর্থনীতি ও ব্যবস্থাপনা বিষয় অন্তর্ভুক্ত।</p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Section: ক্লাস রুটিন */}
-      <motion.section
-        className="shadow-sm p-6 rounded-lg bg-blue-700"
-        initial={{ x: 50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6 }}
+        className="grid gap-6 md:grid-cols-3"
       >
-        <h2 className="text-2xl text-center font-semibold mb-3">ক্লাস রুটিন</h2>
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="flex-1 space-y-2">
-            <ul className="list-disc pl-5 space-y-1">
-              <li>শিক্ষা সপ্তাহ: রবিবার - বৃহস্পতিবার</li>
-              <li>প্রতিদিন: সকাল ৮:০০ - দুপুর ১:৩০</li>
-              <li>টিফিন বিরতি: সকাল ১০:৪৫ - ১১:১৫</li>
+        {[
+          {
+            title: "বিজ্ঞান বিভাগ",
+            img: scienceImage,
+            accent: "from-emerald-400/40 to-blue-500/40",
+            desc: "পদার্থ, রসায়ন, জীববিজ্ঞান, গণিত ও আইসিটিতে বিশেষায়িত ল্যাবসহ শিক্ষা।",
+          },
+          {
+            title: "মানবিক বিভাগ",
+            img: humanImage,
+            accent: "from-fuchsia-400/30 to-blue-400/30",
+            desc: "সাহিত্য, ইতিহাস, সমাজবিজ্ঞান ও বিশ্বসংস্কৃতি সম্পর্কে গভীর অনুশীলন।",
+          },
+          {
+            title: "বাণিজ্য বিভাগ",
+            img: commerceImage,
+            accent: "from-amber-400/30 to-rose-400/30",
+            desc: "হিসাববিজ্ঞান, অর্থনীতি, ব্যবসা সংগঠন ও উদ্যোক্তা প্রকল্পে ফোকাস।",
+          },
+        ].map((dept, index) => (
+          <motion.div
+            key={dept.title}
+            className="overflow-hidden rounded-3xl glass-panel p-4"
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className={`h-48 rounded-2xl overflow-hidden relative bg-gradient-to-br ${dept.accent}`}>
+              <img src={dept.img} alt={dept.title} className="w-full h-full object-cover mix-blend-overlay" />
+            </div>
+            <div className="mt-4 space-y-2">
+              <h3 className="text-xl font-bold">{dept.title}</h3>
+              <p className="text-slate-200 text-sm leading-relaxed">{dept.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        className="glass-panel p-6 sm:p-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex-1 space-y-4">
+            <h3 className="text-2xl font-semibold text-white">ক্লাস রুটিন</h3>
+            <ul className="space-y-3 text-slate-200">
+              <li>📚 রবিবার - বৃহস্পতিবার | সকাল ৮:০০ - দুপুর ১:৩০</li>
+              <li>☕ টিফিন ব্রেক | সকাল ১০:৪৫ - ১১:১৫</li>
+              <li>🧪 ল্যাব ও ক্লাব কার্যক্রম | দুপুর ১:৩০ - ৩:৩০</li>
             </ul>
           </div>
-          <img
-            src={calendeer}
-            className="w-64 rounded-lg border border-blue-300 shadow"
-            alt="Routine Calendar"
-          />
+          <div className="flex-1 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-purple-500/30 blur-3xl" />
+            <div className="relative rounded-3xl overflow-hidden border border-white/10">
+              <img src={calendar} alt="Routine calendar" className="w-full object-cover" />
+            </div>
+          </div>
         </div>
-      </motion.section>
-    </div>
+      </motion.div>
+    </section>
   );
 };
 

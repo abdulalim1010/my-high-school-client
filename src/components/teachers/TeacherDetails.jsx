@@ -1,6 +1,7 @@
+
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ArrowLeft } from "lucide-react"; // optional icon
+import { ArrowLeft } from "lucide-react";
 
 const TeacherDetails = () => {
   const { id } = useParams();
@@ -14,57 +15,48 @@ const TeacherDetails = () => {
       .catch((err) => console.error(err));
   }, [id]);
 
-  if (!teacher) return <p className="text-center mt-8">Loading...</p>;
+  if (!teacher) return <p className="text-center text-white">লোড হচ্ছে...</p>;
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-10">
-      {/* 🔙 Back Button */}
-      <div className="mb-6">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition"
-        >
-          <ArrowLeft size={20} /> Back to Teachers
-        </button>
+    <section className="space-y-8">
+      <button
+        onClick={() => navigate(-1)}
+        className="inline-flex items-center gap-2 text-sm text-slate-200 hover:text-white transition"
+      >
+        <ArrowLeft size={18} /> ফিরে যান
+      </button>
+
+      <div className="text-center space-y-3">
+        <p className="uppercase text-xs tracking-[0.6em] text-slate-400">Teacher Profile</p>
+        <h1 className="section-title">অধ্যাপক প্রোফাইল</h1>
+        <p className="section-subtitle">একজন অনুপ্রেরণাদায়ী শিক্ষক যিনি শিক্ষার্থীদের ভবিষ্যৎ গড়ে তোলেন।</p>
       </div>
 
-      {/* 🧑‍🏫 Page Heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-blue-800">Teacher Profile</h1>
-        <p className="text-gray-600 text-lg mt-2">A dedicated and passionate educator</p>
-      </div>
-
-      {/* 🔲 Grid Layout: Left = Image, Right = Info */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white rounded-lg shadow-lg p-6">
-        {/* Left: Image */}
-        <div className="flex justify-center">
-          <img
-            src={teacher.image}
-            alt={teacher.name}
-            className="w-full max-w-sm rounded-lg shadow-lg object-cover border-4 border-blue-300"
-          />
+      <div className="glass-panel grid md:grid-cols-2 gap-8 p-6 sm:p-10 items-center">
+        <div className="rounded-[24px] overflow-hidden border border-white/10">
+          <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
         </div>
-
-        {/* Right: Info */}
-        <div className="space-y-4 text-gray-700">
-          <h2 className="text-3xl font-bold text-gray-800">{teacher.name}</h2>
-          <p className="text-xl text-blue-600 font-semibold">{teacher.title}</p>
-          <p className="text-md text-gray-600 italic">{teacher.degree}</p>
-
-          <div className="mt-4 space-y-2">
-            <p><strong>📍 Address:</strong> {teacher.address}</p>
-            <p><strong>📞 Phone:</strong> {teacher.phone}</p>
+        <div className="space-y-4 text-slate-200">
+          <div>
+            <h2 className="text-3xl font-bold text-white">{teacher.name}</h2>
+            <p className="text-lg text-sky-300">{teacher.title}</p>
+            <p className="text-sm text-slate-400">{teacher.degree}</p>
+          </div>
+          <div className="grid gap-3 text-sm">
+            <p>📍 ঠিকানা: {teacher.address}</p>
+            <p>📞 ফোন: {teacher.phone}</p>
             <p>
-              <strong>📧 Email:</strong>{" "}
-              <a href={`mailto:${teacher.gmail}`} className="text-blue-600 underline">
+              📧 ইমেইল:{" "}
+              <a href={`mailto:${teacher.gmail}`} className="text-sky-300 underline">
                 {teacher.gmail}
               </a>
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default TeacherDetails;
+
